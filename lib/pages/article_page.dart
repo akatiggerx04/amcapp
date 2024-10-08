@@ -96,6 +96,9 @@ class ViewArticle extends StatelessWidget {
                       height: 12,
                     ),
                     Text(article.body),
+                    const SizedBox(
+                      height: 12,
+                    ),
                   ],
                 ),
               ),
