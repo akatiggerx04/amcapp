@@ -89,9 +89,9 @@ class _NewsPageState extends State<NewsPage> {
                     ],
                   ),
                 )
-              : SingleChildScrollView(
-                  child: RefreshIndicator(
-                    onRefresh: refreshPage,
+              : RefreshIndicator(
+                  onRefresh: refreshPage,
+                  child: SingleChildScrollView(
                     child: SafeArea(
                       child: Padding(
                         padding: const EdgeInsets.only(

@@ -37,13 +37,14 @@ class MorePage extends StatelessWidget {
                   ),
                   const Text(
                     "African Minifootball Confederation",
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   const Text(
-                    "All rights reserved.",
+                    "© Copyright, All Rights Reserved.",
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
@@ -52,7 +53,7 @@ class MorePage extends StatelessWidget {
                   ),
                   const URLButton(
                     redirectUrl:
-                        'https://www.africanminifootball.org?source=app',
+                        'https://www.africanminifootball.org?source=app&developed_by=akatiggerx04',
                     buttonIcon: Icons.link,
                     buttonText: "Our Website",
                   ),

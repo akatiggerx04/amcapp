@@ -88,76 +88,75 @@ class _GalleryPageState extends State<GalleryPage> {
                     ],
                   ),
                 )
-              : SingleChildScrollView(
-                  child: RefreshIndicator(
-                    onRefresh: refreshPage,
-                    child: SafeArea(
-                      child: Padding(
-                        padding: const EdgeInsets.only(
-                          left: 12,
-                          right: 12,
-                          top: 12,
-                        ),
-                        child: gallery.isEmpty && !_isLoading
-                            ? const Center(
-                                child: Text("No Images found."),
-                              )
-                            : Skeletonizer(
-                                enabled: _isLoading,
-                                child: GridView.count(
-                                  crossAxisCount: 2,
-                                  shrinkWrap: true,
-                                  children: [
-                                    for (var image in _isLoading
-                                        ? List.generate(6, (index) => null)
-                                        : gallery)
-                                      GestureDetector(
-                                        onTap: _isLoading
-                                            ? null
-                                            : () {
-                                                showImageViewer(
-                                                  context,
-                                                  NetworkImage(
-                                                    pb.files
-                                                        .getUrl(image,
-                                                            image.data["Image"])
-                                                        .toString(),
-                                                  ),
-                                                  swipeDismissible: true,
-                                                );
-                                              },
-                                        child: Container(
-                                          margin: const EdgeInsets.all(6),
-                                          decoration: BoxDecoration(
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .surfaceContainer,
-                                            borderRadius:
-                                                BorderRadius.circular(12),
-                                          ),
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(12),
-                                            child: _isLoading
-                                                ? Container(
-                                                    height: 180,
-                                                    color: Colors.grey[850],
-                                                  )
-                                                : Image.network(
-                                                    height: 180,
-                                                    pb.files
-                                                        .getUrl(image,
-                                                            image.data["Image"])
-                                                        .toString(),
-                                                    fit: BoxFit.cover,
-                                                  ),
-                                          ),
-                                        ),
-                                      )
-                                  ],
-                                ),
-                              ),
+              : RefreshIndicator(
+                  onRefresh: refreshPage,
+                  child: SafeArea(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        left: 12,
+                        right: 12,
+                        top: 12,
                       ),
+                      child: gallery.isEmpty && !_isLoading
+                          ? const Center(
+                              child: Text("No Images found."),
+                            )
+                          : Skeletonizer(
+                              enabled: _isLoading,
+                              child: GridView.count(
+                                physics: const ScrollPhysics(),
+                                crossAxisCount: 2,
+                                shrinkWrap: true,
+                                children: [
+                                  for (var image in _isLoading
+                                      ? List.generate(8, (index) => null)
+                                      : gallery)
+                                    GestureDetector(
+                                      onTap: _isLoading
+                                          ? null
+                                          : () {
+                                              showImageViewer(
+                                                context,
+                                                NetworkImage(
+                                                  pb.files
+                                                      .getUrl(image,
+                                                          image.data["Image"])
+                                                      .toString(),
+                                                ),
+                                                swipeDismissible: true,
+                                              );
+                                            },
+                                      child: Container(
+                                        margin: const EdgeInsets.all(6),
+                                        decoration: BoxDecoration(
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .surfaceContainer,
+                                          borderRadius:
+                                              BorderRadius.circular(12),
+                                        ),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(12),
+                                          child: _isLoading
+                                              ? Container(
+                                                  height: 180,
+                                                  color: Colors.grey[850],
+                                                )
+                                              : Image.network(
+                                                  height: 180,
+                                                  pb.files
+                                                      .getUrl(image,
+                                                          image.data["Image"])
+                                                      .toString(),
+                                                  fit: BoxFit.cover,
+                                                ),
+                                        ),
+                                      ),
+                                    )
+                                ],
+                              ),
+                            ),
                     ),
                   ),
                 );

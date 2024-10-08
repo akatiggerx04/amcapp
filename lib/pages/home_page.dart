@@ -101,6 +101,7 @@ class _HomePageState extends State<HomePage> {
                             top: 12,
                           ),
                           child: GridView.count(
+                            physics: const ScrollPhysics(),
                             crossAxisCount: 2,
                             shrinkWrap: true,
                             children: [
