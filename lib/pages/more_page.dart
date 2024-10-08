@@ -42,7 +42,10 @@ class MorePage extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const Text("All rights reserved. Developed by @akatiggerx04"),
+                  const Text(
+                    "All rights reserved.",
+                    textAlign: TextAlign.center,
+                  ),
                   const SizedBox(
                     height: 12,
                     width: double.infinity,
@@ -54,8 +57,7 @@ class MorePage extends StatelessWidget {
                     buttonText: "Our Website",
                   ),
                   const URLButton(
-                    redirectUrl:
-                        'https://www.africanminifootball.org/privacy-policy-app.html',
+                    redirectUrl: 'https://amc-app-policy.pages.dev',
                     buttonIcon: Icons.privacy_tip_rounded,
                     buttonText: "Privacy Policy",
                   ),
